@@ -60,10 +60,11 @@ Object.freeze(MORSE_CODE);
 
 function morse(text) {
 
-  try {
+  if (typeof text !== "string") {
+    throw new Error("Please provide a morse string");
+  }
  
     let decoded = "";
-    let character = "";
     let spaces = 0;
 
     text.trim().split(' ').forEach(element => {
@@ -71,7 +72,7 @@ function morse(text) {
 
         decoded += MORSE_CODE[element]
 
-      } else if (element === "") {
+      } else {
 
         spaces += 1
         if (spaces == 2) {
@@ -82,11 +83,6 @@ function morse(text) {
     });
 
     return decoded;
-
-  } catch (error) {
-    throw ("Please provide a morse string");
-  }
-
 }
 
 module.exports = morse;
