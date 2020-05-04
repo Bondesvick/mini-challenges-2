@@ -1,10 +1,9 @@
 function isolateDuplicates(text) {
 
-    // if (typeof text !== "string") {
-    //   return "Please enter a valid string";
-    // }
+    if (typeof text !== "string") {
+      throw new Error("Please enter a valid string");
+    }
 
-    try {
          let count = 0;
          let indexString = "";
          let duplicateCount = 0;
@@ -46,12 +45,6 @@ function isolateDuplicates(text) {
 
          returned.push(indexString, count);
          return returned;
-         
-    } catch (error) {
-        //return "Please enter a valid string";
-        throw ("Please enter a valid string");
-    }
-   
 }
 
 module.exports = isolateDuplicates;
